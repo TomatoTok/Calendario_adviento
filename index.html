@@ -11,53 +11,274 @@
     
 </head>
 <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    @import url(https://fonts.googleapis.com/css?family=Oleo+Script);
+
+body {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/xmas.jpg");
+  color: #fff;
+  font-family: 'Oleo Script', cursive;
+  padding: 20px;
+  font-weight: 400;
 }
 
-body, html {
-    height: 100%;
-    background-color: #dcf0f1;
-z-index: -1;
+h1 {
+  margin:0;
+  font-size:75px;
+  line-height: 75px;
+  text-align: center;
+  font-weight: 400;
 }
 
-.background-image {
-    background-image: url('./asset/3115588.jpg'); /* Cambia esto por la ruta de tu imagen */
-    height: 100vh; /* Alto total de la ventana */
-    width: auto; /* Ancho total */
-    margin: auto;
-    position: absolute; /* Posición absoluta para que ocupe todo el fondo */
-    z-index: 0; /* Envía la imagen al fondo */
-    background-size: cover; /* Cubrir todo el fondo */
+ul {
+  margin:0 auto 30px auto;
+  padding:0;
+  list-style-type:none;
+  max-width:900px;
+  width: 100%;
+  text-align: center;
+  user-select: none;
 }
 
-.content {
-    position: relative; /* Para poder agregar contenido encima */
-    z-index: 1; /* Asegura que el contenido esté por encima de la imagen */
-    /*color: white;  Color del texto para que contraste con la imagen */
-    padding: 20px; /* Espaciado alrededor del contenido */
+li {
+  font-weight: 400;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: inline-block;
+  color:#111;
+  cursor:pointer;
+  font-size: 26px;
+  padding:15px;
+  margin:25px 12px;
+  width: 130px;
+  height:130px;
+  line-height: 100px;
+  text-align:center;
+  position: relative;
+  vertical-align:top;
+  user-select: none;
+  perspective: 800px;
+  transition: all 0.4s ease-in-out;
+}
+
+ul li:last-child {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/santa.jpg") center top;
+  background-size:cover;  
+  display:block;
+  clear:both;
+  margin: 20px auto 0 auto;
+  width: 200px;
+  height: 275px;
+}
+
+ul li:last-child .door {
+  font-size: 100px;
+  width: 200px;
+  height: 275px;
+  line-height: 240px;
+}
+
+ul li:last-child .revealed {
+  line-height: 123px;
+}
+
+.door {
+  user-select: none;
+  color:#fff;
+  font-size: 70px;
+  position: absolute;
+  top:0;
+  left:0;
+  background-color: #91c1cc;
+  box-sizing: border-box;
+  border-top: 2px #eee dashed;
+  border-right: 2px #eee dashed;
+  border-bottom: 2px #eee dashed;
+  border-left: 1px #eee solid;
+  border-radius: 6px;
+  padding:15px;
+  width: 130px;
+  height:130px;
+  transform-origin: 0 40%; 
+  transition: all 0.4s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.current .door {
+  background-color: #7EAD44;
+}
+
+.current .door.open{
+  color: #7EAD44;
+}
+
+.revealed {
+  user-select: none;
+}
+
+#message {
+  box-sizing: border-box;
+  color: #222;
+  display: none;
+  font-size: 24px;
+  padding: 20px;
+  background: #eddecb;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.open {
+  box-shadow: 14px 0px 15px -1px rgba(0,0,0,0.2);
+  color: #91c1cc;
+  transform: rotate3d(0, 1, 0, -98deg);
+}
+
+.jiggle {
+  animation: jiggle 0.2s infinite;
+  transform: rotate(-1deg);
+}
+
+@keyframes jiggle {
+  0% {
+        transform: rotate(-1deg);
+  }
+  50% {
+      transform: rotate(1deg);
+  }
+}
+
+@media screen and (min-width: 480px) {
+  li {
+    margin:25px 20px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+	body {
+		background-size:150px;
+	}
+	
+	p {
+		right: 6%;
+		top: 20%;
+		bottom: auto; 
+		margin-left: auto;
+		left: auto;
+	}
 }
 </style>
-<!-- imagen de fondo en el body por css -->
 <body>
-    <div class="row justify-content-center d-flex">
-            <img class="background-image" src="./asset/3115588.jpg" alt="">
-    </div>
-   <div class="content">
-    <div class="container" style="width:100%;border:1px gray solid; height: 95vh;">
-        <!-- Fila de 1 a 5  -->
-        <div class="row" style="margin-top:3%;border:1px gray solid; height: 17%;">
-            <div class="col-lg-3" style="border:1px gray solid; width:12%;margin-left:17.5%;"></div>
-        </div>
-    </div>
-</div>
-
-     <!-- Enlace a Bootstrap 5 y dependencias de JavaScript (Popper.js) -->
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
     
+<h1>Festividad de Febrero</h1>
+<ul>
+  <li><div class="door">1</div></li>
+  <li><div class="door">2</div></li>
+  <li><div class="door">3</div></li>
+  <li><div class="door">4</div></li>
+  <li><div class="door">5</div></li>
+  <li><div class="door">6</div></li>
+  <li><div class="door">7</div></li>
+  <li><div class="door">8</div></li>
+  <li><div class="door">9</div></li>
+  <li><div class="door">10</div></li>
+  <li><div class="door">11</div></li>
+  <li><div class="door">12</div></li>
+  <li><div class="door">13</div></li>
+  <li><div class="door">14</div></li>
+</ul>
+
+<p id="message"></p>
+</body>
+ <!-- Enlace a Bootstrap 5 y dependencias de JavaScript (Popper.js) -->
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+ <script>
+
+$( document ).ready(function() {
+
+var words = ["Lorem ", "ipsum ", "delor", "sit", "amet", "consect", "adipisci", "elit,", "sed.", "Eiusmod", "tempor", "a", "enim", "minim", "season", "nulla", "dolore", "sint", "id", "est", "laboris", "ut.", "aute", "laborum", "toe"];
+
+var message = "";
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var scrolled = false;
+var timeDelay = 200;
+
+// function to reveal message
+var cardReveal = function() {
+  $("#message").text(message).show();
+}  
+
+day=7; // uncomment to skip to 25
+
+// Only work in December
+if(month) {
+  // Loop through each calendar window
+  $("li").each( function( index ) {
+    var adventwindow = index + 1;
+    var item = $(this);
+
+    // Open past windows
+    if( day !== adventwindow && adventwindow < day ) {
+      window.setTimeout(function(){
+        item.children(".door").addClass("open");
+      }, timeDelay);
+    }
+
+    // timeout offset for past window opening animation
+    timeDelay += 100;
+
+    // Add words so far to message variable
+    if( adventwindow <= day ) {
+      var word = words[index];
+      $(this).append('<div class="revealed">' + word + '</div>');
+      message = message + " " + word;
+    }
+
+    // Add jiggle animation to current day window
+    if(adventwindow === day) {
+      $(this).addClass("current");
+      $(this).addClass("jiggle");
+    }
+
+    // On clicking a window, toggle it open/closed and
+    // handle other things such as removing jiggle and 25th
+    $(this).on("click", function() {
+      if(adventwindow <= day) { 
+        $(this).children(".door").toggleClass("open");
+      }
+
+      $(this).removeClass("jiggle");
+
+      // If 25th, can show the message
+      if(day >= 25 && adventwindow === 25) {
+        messageReveal();
+
+        // Animate scroll to message if not already done
+        if(!scrolled) {
+          $('html, body').animate({
+            scrollTop: $("#message").offset().top
+          }, 2000);
+          scrolled = true;
+        }
+      }
+    });
+
+  });
+
+  // If beyond 24, show message
+  if(day >= 26){
+    messageReveal();
+  }
+
+}
+
+});
+ </script>
+</html>
